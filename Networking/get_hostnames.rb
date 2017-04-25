@@ -4,8 +4,8 @@ puts "Insert name of file where IP addresses are located: "
 @File = gets.chomp
 @IP_ADDRESSES = []
 @NO_DNS_Entry = []
-@CPE_Machines = []
-@CORPNET_Machines = []
+@Client_Machines = []
+@NET_Machines = []
 
 def reverse_dns
   f = File.open(@File) or die 'ips.txt does not exist...'
@@ -14,9 +14,9 @@ def reverse_dns
     begin
       hostname = Resolv.getname ip
       if hostname.include?('DHCP') || hostname.include?('dhcp')
-        @CPE_Machines << hostname
-      elsif hostname.include?('corp.tfbnw.net')
-        @CORPNET_Machines << hostname
+        @Client_Machines << hostname
+      elsif hostname.include?('net')
+        @NET_Machines << hostname
       else
         puts "#{ip} = #{hostname}"
       end
@@ -25,13 +25,13 @@ def reverse_dns
     end
   end
 
-  puts "\n The following are CPE Machines:"
-  @CPE_Machines.each do |hostname|
+  puts "\n The following are Client Machines:"
+  @Client_Machines.each do |hostname|
     puts hostname
   end
 
-  puts "\n The following are CorpNet Machines:"
-  @CORPNET_Machines.each do |hostname|
+  puts "\n The following are Networking Machines:"
+  @NET_Machines.each do |hostname|
     puts hostname
   end
 
