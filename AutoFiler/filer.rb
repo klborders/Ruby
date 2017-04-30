@@ -4,9 +4,11 @@ require 'fileutils'
 @uname= ENV['USER']
 @doc_arr = [
   '.csv',
+  '.doc',
   '.docx',
   '.pdf',
   '.pptx',
+  '.ps1',
   '.py',
   '.rb',
   '.rtf',
@@ -14,19 +16,27 @@ require 'fileutils'
   '.xls',
 ]
 @package_arr = [
+  '.app',
   '.cab',
+  '.cer',
+  '.csr',
   '.dmg',
+  '.epub',
   '.exe',
   '.inf',
   '.iso',
   '.msi',
+  '.msu',
   '.ova',
   '.ovf',
+  '.pub',
   '.rpm',
+  '.scp',
   '.tar',
   '.zip'
 ]
 @pic_arr = [
+  '.gif',
   '.jpeg',
   '.jpg',
   '.png',
