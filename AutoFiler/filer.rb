@@ -2,18 +2,23 @@ require 'colorize'
 
 @doc_arr = [
   '.csv',
+  '.docx',
+  '.pptx',
+  '.rtf',
   '.txt',
   '.xls',
 ]
 @package_arr = [
   '.dmg',
   '.exe',
+  '.zip'
 ]
 @pic_arr = [
-  '.jpg',
+  '.jpeg',
   '.png',
   '.ttf',
 ]
+@to_sort = []
 
 # Define functions here
 def AutoFiler(uname)
@@ -25,5 +30,7 @@ def AutoFiler(uname)
       puts "Move this to App_Installs: #{f}".red
     elsif @pic_arr.any? { |k| f.include? k }
       puts "Move this to Pictures: #{f}".red
+    else
+      @to_sort << f
   end
 end
