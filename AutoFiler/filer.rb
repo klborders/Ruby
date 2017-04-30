@@ -61,7 +61,8 @@ def get_path(s)
 end
 
 def SortContents(uname)
-  contents = Dir.entries("/Users/#{uname}/Downloads")
+  download_dir = get_path('Downloads')
+  contents = Dir.entries(download_dir)
   contents.each do |f|
     if @doc_arr.any? { |k| f.include? k }
       @docs << f
@@ -91,17 +92,21 @@ def ListContents()
 end
 
 def MoveContents(uname)
+  download_dir = get_path('Downloads')
+  documents_dir = get_path('Documents')
+  library_dir = get_path('Library')
+  pictures_dir = get_path('Pictures')
   @docs.each do |f|
     puts f + ' will be moved to the Documents folder.'
-    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Documents")
+    FileUtils.mv("#{download_dir}/#{f}", documents_dir)
   end
   @pkgs.each do |f|
     puts f + ' will be moved to the Library folder.'
-    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Library")
+    FileUtils.mv("#{download_dir}/#{f}", library_dir)
   end
   @pics.each do |f|
     puts f + ' will be moved to the Pictures folder.'
-    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Pictures")
+    FileUtils.mv("#{download_dir}/#{f}", pictures_dir)
   end
 end
 
