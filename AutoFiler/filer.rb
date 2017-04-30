@@ -1,4 +1,5 @@
 require 'colorize'
+require 'fileutils'
 
 @doc_arr = [
   '.csv',
@@ -66,5 +67,21 @@ def ListContents()
   end
 end
 
+def MoveContents()
+  @docs.each do |i|
+    puts i + " will be moved to the Documents folder."
+    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Documents")
+  end
+  @pkgs.each do |i|
+    puts i + " will be moved to the Library folder."
+    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Library")
+  end
+  @pics.each do |i|
+    puts i + " will be moved to the Pictures folder."
+    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Pictures")
+  end
+end
+
 SortContents('klborders')
 ListContents()
+MoveContents()
