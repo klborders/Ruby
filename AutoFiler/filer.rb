@@ -1,6 +1,7 @@
 require 'colorize'
 require 'fileutils'
 
+@uname= ENV['USER']
 @doc_arr = [
   '.csv',
   '.docx',
@@ -37,6 +38,28 @@ require 'fileutils'
 @pics = []
 
 # Define functions here
+def is_mac?
+  RUBY_PLATFORM.downcase.include?("darwin")
+end
+
+def is_windows?
+  RUBY_PLATFORM.downcase.include?("mswin")
+end
+
+def is_linux?
+  RUBY_PLATFORM.downcase.include?("linux")
+end
+
+def get_path(s)
+  if is_mac? || is_windows?
+   return "/Users/#{@uname}/#{s}"
+  elsif is_linux?
+    return "/home/#{@uname}/#{s}"
+  else
+    return 'Invalid Platform Family!'.red
+  end
+end
+
 def SortContents(uname)
   contents = Dir.entries("/Users/#{uname}/Downloads")
   contents.each do |f|
@@ -67,21 +90,21 @@ def ListContents()
   end
 end
 
-def MoveContents()
+def MoveContents(uname)
   @docs.each do |f|
     puts f + ' will be moved to the Documents folder.'
-    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Documents")
+    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Documents")
   end
   @pkgs.each do |f|
     puts f + ' will be moved to the Library folder.'
-    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Library")
+    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Library")
   end
   @pics.each do |f|
     puts f + ' will be moved to the Pictures folder.'
-    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Pictures")
+    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Pictures")
   end
 end
 
-SortContents('klborders')
+SortContents(@uname)
 ListContents()
-MoveContents()
+MoveContents(@uname)
