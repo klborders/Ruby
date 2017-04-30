@@ -68,17 +68,17 @@ def ListContents()
 end
 
 def MoveContents()
-  @docs.each do |i|
-    puts i + " will be moved to the Documents folder."
-    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Documents")
+  @docs.each do |f|
+    puts f + ' will be moved to the Documents folder.'
+    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Documents")
   end
-  @pkgs.each do |i|
-    puts i + " will be moved to the Library folder."
-    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Library")
+  @pkgs.each do |f|
+    puts f + ' will be moved to the Library folder.'
+    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Library")
   end
-  @pics.each do |i|
-    puts i + " will be moved to the Pictures folder."
-    d.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Pictures")
+  @pics.each do |f|
+    puts f + ' will be moved to the Pictures folder.'
+    f.mv("/Users/#{uname}/Downloads/#{i}", "/Users/#{uname}/Pictures")
   end
 end
 
