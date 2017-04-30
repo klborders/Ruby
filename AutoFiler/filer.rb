@@ -93,15 +93,15 @@ end
 def MoveContents(uname)
   @docs.each do |f|
     puts f + ' will be moved to the Documents folder.'
-    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Documents")
+    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Documents")
   end
   @pkgs.each do |f|
     puts f + ' will be moved to the Library folder.'
-    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Library")
+    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Library")
   end
   @pics.each do |f|
     puts f + ' will be moved to the Pictures folder.'
-    f.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Pictures")
+    FileUtils.mv("/Users/#{uname}/Downloads/#{f}", "/Users/#{uname}/Pictures")
   end
 end
 
