@@ -105,3 +105,133 @@ end
 def multiply_by_length(arr)
 	return arr.each_with_index { |item, index| arr[index] = item * arr.length}
 end
+
+# Nth Smallest Element
+def nth_smallest(arr, n)
+	return arr.sort[n-1]
+end
+
+# Find the Index
+def find_index(arr, str) 
+	return arr.index(str)
+end
+
+# Shuffle the Name
+def name_shuffle(str)
+	return str.split.reverse.join(' ')
+end
+
+# Valid Zip Code
+def is_valid(zip_code)
+	return true if Integer(zip_code) && zip_code.length == 5 rescue false
+end
+
+# Alphabet Soup
+def alphabet_soup(str)
+	return str.split('').sort.join('')
+end
+
+# Sort an Array by String Length
+def sort_by_length(arr)
+	return arr.sort_by {|x| x.length}
+end
+
+# Transform into an Array with No Duplicates
+def set(arr)
+	return arr.uniq
+end
+
+# Partially Hidden String
+def partially_hide(phrase)
+    new_phrase = []
+    phrase.split.each do |x|
+        new_phrase << x.sub(x.slice(1..-2), ('-') * x.slice(1..-2).length)
+    end
+    return new_phrase.join(' ')
+end
+
+# Is the Average of All Elements a Whole Number?
+def is_avg_whole?(arr)
+    sum_of_arr = arr.inject(0) {|sum,x| sum + x }
+	return (sum_of_arr / arr.length.to_f)%1==0 ? true : false
+end
+
+# Xs and Os, Nobody Knows
+def xo(str)
+	o_count = str.downcase.scan('o').count
+	x_count = str.downcase.scan('x').count
+	return o_count == x_count ? true : false
+end
+
+# Check for Anagrams
+def is_anagram(s1, s2)
+	return s1.downcase.split('').sort == s2.downcase.split('').sort
+end
+
+# Even Number Generator
+def find_even_nums(num)
+	even_nums = []
+	(1..num).each { |x| even_nums << x if x.even?}
+	return even_nums
+end
+
+# Flip the Boolean
+def reverse(bool)
+    return [true, false].include?(bool) ? !bool : 'boolean expected'
+end
+
+# Amplify the Multiples of 4
+def amplify(num)
+	arr = []
+	(1..num).each do |n|
+    	n % 4 == 0 ? arr << n * 10 : arr << n
+	end
+	return arr
+end
+
+# Reverse the Case
+def reverse_case(str)
+	return str.swapcase
+end
+
+# Return the Four Letter Strings
+def is_four_letters(arr)
+	new_arr = []
+	arr.each { |x| new_arr << x if x.length == 4}
+	return new_arr
+end
+
+# Eliminate Odd Numbers within an Array
+def no_odds(arr)
+	even_arr = []
+	arr.each { |x| even_arr << x if x.even?}
+	return even_arr
+end
+
+# Capitalize the Names
+def cap_me(arr)
+	new_arr = []
+	arr.each do |x|
+		x = x.downcase
+		x[0] = x[0].capitalize
+		new_arr << x
+	end
+	return new_arr
+end
+
+# Count Instances of a Character in a String
+def char_count(str1, str2)
+	return str2.scan(str1).count
+end
+
+# Find the Largest Numbers in a Group of Arrays
+def find_largest_nums(arr)
+	largest = []
+	arr.each { |x| largest << x.sort[-1] }
+	return largest
+end
+
+# How Many Vowels?
+def count_vowels(str)
+	return str.scan(/[aeoui]/).count
+end
