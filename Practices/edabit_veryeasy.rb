@@ -145,7 +145,7 @@ end
 def partially_hide(phrase)
     new_phrase = []
     phrase.split.each do |x|
-        new_phrase << x.sub(x.slice(1..-2), ('-') * x.slice(1..-2).length)
+      new_phrase << x.sub(x.slice(1..-2), ('-') * x.slice(1..-2).length)
     end
     return new_phrase.join(' ')
 end
@@ -234,4 +234,89 @@ end
 # How Many Vowels?
 def count_vowels(str)
 	return str.scan(/[aeoui]/).count
+end
+
+# Check if String Ending Matches Second String
+def check_ending(str1, str2)
+	return str1[-str2.length..-1] == str2 ? true : false
+end
+
+# Is the Number Symmetrical?
+def is_symetrical?(int)
+	return int === int.to_s.reverse.to_i ? true : false
+end
+
+# Convert Number to String of Dashes
+def num_to_dashes(num)
+	return '-'*num
+end
+
+# Repeat the Same Item Multiple Times
+def repeat(item, times)
+	arr = []; arr += [item] * times; return arr
+end
+
+# Convert Number to Corresponding Month Name
+# Edabit couldn't load the Date class :P
+def month_name(num)
+	months = {
+		1 => 'January',
+		2 => 'February',
+		3 => 'March',
+		4 => 'April',
+		5 => 'May',
+		6 => 'June',
+		7 => 'July',
+		8 => 'August',
+		9 => 'September',
+		10 => 'October',
+		11 => 'November',
+		12 => 'December',
+	}
+	return months[num]
+end
+
+# Return the Factorial
+def factorial(int)
+  return (1..int).inject(:*)
+end
+
+# Calculate the Mean
+def mean(arr)
+	return (arr.inject(:+) / arr.length.to_f).round(2)
+end
+
+# Absolute Sum
+def get_abs_sum(arr)
+	x = 0; arr.each { |i| x = x + i.abs}; return x
+end
+
+# Add up the Numbers from a Single Number
+def add_up(num)
+  return (1..num).inject(:+)
+end
+
+# Slice of Pie
+def equal_slices(total, people, each)
+  return people * each <= total ? true : false
+end
+
+# Repeating Letters
+def double_char(str)
+	arr = []; str.split('').each { |x| arr << (x*2) }; return arr.join
+end
+
+# Pi to N Decimal Places
+def my_pi(n)
+	return Math::PI.round(n)
+end
+
+# Remove Every Vowel from a String
+def silence_trump(str)
+	return str.gsub(/[(aeouiAEIOU)]/,'')
+end
+
+# Filter out Strings from an Array
+def filter_list(arr)
+	return arr.select {|x| x.is_a?(Integer) }
 end
