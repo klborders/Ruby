@@ -320,3 +320,19 @@ end
 def filter_list(arr)
 	return arr.select {|x| x.is_a?(Integer) }
 end
+
+# Find the Minimum, Maximum, Length and Average Values
+'''
+Minimum Value
+Maximum Value
+Sequence Length
+Average Value
+'''
+def min_max_len_ave(arr)
+	return [
+		arr.min,s
+		arr.max,
+		arr.length,
+		arr.instance_eval { reduce(:+) / size.to_f },
+	]
+end
