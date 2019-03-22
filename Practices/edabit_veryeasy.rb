@@ -322,12 +322,6 @@ def filter_list(arr)
 end
 
 # Find the Minimum, Maximum, Length and Average Values
-'''
-Minimum Value
-Maximum Value
-Sequence Length
-Average Value
-'''
 def min_max_len_ave(arr)
 	return [
 		arr.min,s
